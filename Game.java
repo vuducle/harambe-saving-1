@@ -95,8 +95,11 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the world of Harambe!");
+        System.out.println("You need to try to save Harambe, before the bomb explodes!");
+        System.out.println("--------------");
+        System.out.println("You have " + TimerCount.countdown + " minutes!");
+        System.out.println("--------------");
         System.out.println("Type 'help' if you need help.");
         System.out.println();
         System.out.println("You are " + currentRoom.getDescription());
