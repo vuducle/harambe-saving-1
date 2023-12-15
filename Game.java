@@ -46,10 +46,10 @@ public class Game
         Room lobby, storage, prison, lab;
 
         // create the rooms
-        lobby = new Room("an untidy room");
-        storage = new Room("a storage-room filled with all sorts of objects and exotic wildlife.");
-        prison = new Room("in the campus prison");
-        lab = new Room("in a computing lab");
+        lobby = new Room("in an untidy room");
+        storage = new Room("in a storage-room filled with all sorts of objects and exotic wildlife.");
+        prison = new Room("in a prison with Harambe sitting in the middle.");
+        lab = new Room("in a hastily left lab with an enormous glas window at the north wall.");
 
         // initialise room exits (north, east, south, west)
         lobby.setExits(storage, lab, null, null);
@@ -167,7 +167,9 @@ public class Game
                 break;
             case "go": 
                 result = goRoom(command);
-
+                break;
+            case "eat":
+                result = eat();
                 break;
             case "quit": 
                 result = quit(command);
@@ -194,7 +196,7 @@ public class Game
         +"\n"
         +"Your command words are:"
         +"\n"
-        +"   go quit help"
+        +"   go quit help eat"
         +"\n";
     }
 
@@ -202,6 +204,11 @@ public class Game
      * Try to go in one direction. If there is an exit, enter
      * the new room, otherwise print an error message.
      */
+    
+    private String eat(){
+        return "You ate thin air. It was breathable.";
+    }
+    
     private String goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
