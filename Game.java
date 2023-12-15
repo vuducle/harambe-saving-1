@@ -15,6 +15,13 @@
  * @version 2016.02.29
  */
 import java.util.Timer;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 public class Game 
 {
     private Parser parser;
@@ -101,6 +108,24 @@ public class Game
         System.out.println("You have " + TimerCount.countdown + " minutes!");
         System.out.println("--------------");
         System.out.println("Type 'help' if you need help.");
+
+
+        String bildDateiPfad = "harambe.png";
+
+        try {
+            BufferedImage bild = ImageIO.read(new File(bildDateiPfad));
+
+            JFrame frame = new JFrame();
+            frame.setSize(400, 400);
+            JLabel label = new JLabel(new ImageIcon(bild));
+            frame.add(label);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         System.out.println();
         System.out.println("You are " + currentRoom.getDescription());
         System.out.print("Exits: ");
