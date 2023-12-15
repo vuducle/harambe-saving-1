@@ -15,8 +15,11 @@ public enum CommandWord
     GO("go"), 
 
     QUIT("quit"), 
+    
+    EAT("eat"),
 
     HELP("help");
+    
 
     private String word;
     private CommandWord(String word){
