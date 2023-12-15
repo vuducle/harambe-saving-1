@@ -1,14 +1,14 @@
 import java.util.TimerTask;
 import java.util.Timer;
-
+/**
+ * Implements a timer feature for our game
+ * If times reaches 0, the bomb will explode and HARAMBE will die!
+ *
+ * @author Vu Duc Le
+ * @version 0.1
+ */
 public class TimerCount extends TimerTask {
-    /**
-     * Implements a timer feature for our game
-     * If times reaches 0, the bomb will explode and HARAMBE will die!
-     *
-     * @author Vu Duc Le
-     * @version 0.1
-     */
+
     public static int countdown = 10;
     public void run() {
         Timer timer = new Timer();
