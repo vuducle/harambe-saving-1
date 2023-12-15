@@ -3,5 +3,6 @@ public class TimerCount extends TimerTask {
 
     public void run() {
         System.out.println("Hello World!");
+        System.out.println("Test Java");
     }
 }
