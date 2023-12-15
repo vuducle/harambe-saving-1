@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=GameCommandsTest
+comment0.text=\n\ Contains\ System\ Tests\ for\ all\ commands\ \n\ -\ except\ positive\ tests\ for\ go\ command.\n\n
+comment1.params=
+comment1.target=void\ setUp()
+comment1.text=\n\ Sets\ up\ the\ test\ fixture.\n\n\ Called\ before\ every\ test\ case\ method.\n
+comment2.params=
+comment2.target=void\ testGoNorthNoDoor()
+comment2.text=\ \n\ This\ test\ is\ dependent\ on\ the\ first\ room's\ exits\ and\n\ may\ need\ to\ be\ adapted\ if\ you\ change\ the\ world.\n
+comment3.params=
+comment3.target=void\ showExits()
+comment3.text=\ \n\ This\ test\ is\ dependent\ on\ the\ first\ and\ second\ room's\ exits\ and\n\ may\ need\ to\ be\ adapted\ if\ you\ change\ the\ world.\n
+comment4.params=
+comment4.target=void\ testGoWithoutDirection()
+comment5.params=
+comment5.target=void\ testQuit()
+comment6.params=
+comment6.target=void\ testHelp()
+comment7.params=
+comment7.target=void\ testUnknownCommand()
+numComments=8

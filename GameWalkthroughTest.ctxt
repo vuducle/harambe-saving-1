@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=GameWalkthroughTest
+comment0.text=\n\ This\ is\ a\ Game\ System\ Tests\ -\ it\ tests\ the\n\ whole\ game\ and\ the\ endpoints\ between\ user\ input\n\ and\ output\ to\ the\ console.\n\n\ @author\ \ Barne\ Kleinen\n
+comment1.params=
+comment1.target=void\ setUp()
+comment1.text=\n\ Sets\ up\ the\ test\ fixture.\n\n\ Called\ before\ every\ test\ case\ method.\n
+comment2.params=
+comment2.target=void\ completeWalkthrough()
+comment2.text=\n\ This\ test\ needs\ to\ be\ adapted\ to\ your\ world.\n\ If\ your\ world\ becomes\ very\ complicated,\ you\ \n\ may\ want\ to\ split\ the\ walkthrough\ up\ to\ \n\ several\ tests.\n
+comment3.params=direction\ whatShouldBeContained
+comment3.target=void\ goAndSee(java.lang.String,\ java.lang.String)
+numComments=4
