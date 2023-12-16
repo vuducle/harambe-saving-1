@@ -1,7 +1,7 @@
 
 exercise09
 ==========
-Project: your-zuul
+Project: Saving Harambe (WT)
 
 A bad zuul with Unit Tests, used for [Exercise 10 in Info1](http://bkleinen.github.io/info1/labs/exercise09.html).
 
