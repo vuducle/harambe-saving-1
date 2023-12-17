@@ -1,15 +1,15 @@
 
 exercise09
 ==========
-Project: SAVING HARAMBE (WT)
 
+Project: SAVING HARAMBE (WT)
 A bad zuul with Unit Tests, used for [Exercise 10 in Info1](http://bkleinen.github.io/info1/labs/exercise09.html).
 
 
 based on:
 ----------
 
-Project: zuul-bad
+Project: SAVING HARAMBE (WT)
 Authors: Michael Kölling and David J. Barnes
 
 This project is part of the material for the book
