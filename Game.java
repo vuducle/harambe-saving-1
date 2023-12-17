@@ -169,7 +169,7 @@ public class Game
                 result = goRoom(command);
                 break;
             case "eat":
-                result = eat();
+                result = eat(command);
                 break;
             case "quit": 
                 result = quit(command);
@@ -205,8 +205,12 @@ public class Game
      * the new room, otherwise print an error message.
      */
     
-    private String eat(){
-        return "You ate thin air. It was breathable.";
+    private String eat(Command command){
+        if (!command.hasSecondWord()) {
+            return "You ate thin air. It was breathable.";
+
+        }
+        return "";
     }
     
     private String goRoom(Command command) 
