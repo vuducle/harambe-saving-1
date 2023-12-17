@@ -1,4 +1,5 @@
 /**
+ *                      SAVING HARAMBE
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
  *  can walk around some scenery. That's all. It should really be extended 
@@ -42,23 +43,21 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
+        Room lobby, storage, prison, lab;
 
         // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        lobby = new Room("in an untidy room");
+        storage = new Room("in a storage-room filled with all sorts of objects and exotic wildlife.");
+        prison = new Room("in a prison with Harambe sitting in the middle.");
+        lab = new Room("in a hastily left lab with an enormous glas window at the north wall.");
 
-        // initialise room exits
-        outside.setExits(null, theater, lab, pub);
-        theater.setExits(null, null, null, outside);
-        pub.setExits(null, outside, null, null);
-        lab.setExits(outside, office, null, null);
-        office.setExits(null, null, null, lab);
+        // initialise room exits (north, east, south, west)
+        lobby.setExits(storage, lab, null, null);
+        storage.setExits(null, prison, lobby, null);
+        prison.setExits(null, null, lab, storage);
+        lab.setExits(prison, null, null, lobby);
 
-        currentRoom = outside;  // start game outside
+        currentRoom = lobby;  // start game lobby
     }
 
     /**
@@ -103,7 +102,7 @@ public class Game
     {
         System.out.println();
         System.out.println("Welcome to the world of Harambe!");
-        System.out.println("You need to try to save Harambe, before the bomb explodes!");
+        System.out.println("You need to try to save Harambe, before the bomb explodes! :(");
         System.out.println("--------------");
         System.out.println("You have " + TimerCount.countdown + " minutes!");
         System.out.println("--------------");
@@ -168,7 +167,9 @@ public class Game
                 break;
             case "go": 
                 result = goRoom(command);
-
+                break;
+            case "eat":
+                result = eat();
                 break;
             case "quit": 
                 result = quit(command);
@@ -195,7 +196,7 @@ public class Game
         +"\n"
         +"Your command words are:"
         +"\n"
-        +"   go quit help"
+        +"   go quit help eat"
         +"\n";
     }
 
@@ -203,6 +204,11 @@ public class Game
      * Try to go in one direction. If there is an exit, enter
      * the new room, otherwise print an error message.
      */
+    
+    private String eat(){
+        return "You ate thin air. It was breathable.";
+    }
+    
     private String goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
