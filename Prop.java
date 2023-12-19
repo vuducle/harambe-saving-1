@@ -24,5 +24,8 @@ public class Prop
     public boolean getKey(){
         return containsKey;
     }
+    public boolean getBanana(){
+        return containsBanana;
+    }
 
 }

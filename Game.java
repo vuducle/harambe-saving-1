@@ -58,7 +58,7 @@ public class Game
         pinnboard = new Prop("pinnboard", false, false);
         cupboard = new Prop("pinnboard", false, false);
         fridge = new Prop("fridge", false, false);
-        box = new Prop("box", false, false);
+        box = new Prop("box", false, true);
         bomb = new Prop("bomb", false, false);
         chair = new Prop("chair", false, false);
         table = new Prop("table", false, false);
@@ -250,12 +250,14 @@ public class Game
         }
         
         String key;
+        String banana;
         String propToSearch = command.getSecondWord();
         
         for(Prop prop : currentRoom.props){
             if (prop.getDescription().equalsIgnoreCase(propToSearch)) {
                 if(prop.getKey()){key="YES";}
                 else{key="NO :(";}
+                if(prop.getBanana()){banana=" but you found a banana.";}
                 return "You found: " + prop.getDescription() + " - Contains key: " + key;
             }
         }
