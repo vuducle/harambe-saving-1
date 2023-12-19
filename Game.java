@@ -23,6 +23,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.util.ArrayList;
+
 public class Game 
 {
     private Parser parser;
@@ -44,18 +46,27 @@ public class Game
     private void createRooms()
     {
         Room lobby, storage, prison, lab;
+        Prop bed, table, box, chest;
 
         // create the rooms
         lobby = new Room("in an untidy room", "You can see: -pinnboard- and -cupboard-");
         storage = new Room("in a storage-room filled with all sorts of objects and exotic wildlife.", "You can see: -cupboard-, -fridge- and -box-");
         prison = new Room("in a prison with Harambe sitting in the middle.", "You can see: -bomb- and -Harambe-");
         lab = new Room("in a hastily left lab with an enormous glas window at the north wall.", "You can see: -glass-, -chair- and -table-");
-
+        
+        // create the Props
+        box = new Prop("box", false, false);
+        
         // initialise room exits (north, east, south, west)
         lobby.setExits(storage, lab, null, null);
+        lobby.setProps(box, null, null,null);
         storage.setExits(null, prison, lobby, null);
+        storage.setProps(null, null, null,null);
         prison.setExits(null, null, lab, storage);
+        prison.setProps(null, null, null,null);
         lab.setExits(prison, null, null, lobby);
+        lab.setProps(null, null, null,null);
+        
 
         currentRoom = lobby;  // start game lobby
     }
@@ -179,6 +190,8 @@ public class Game
             case "look":
                 result = currentRoom.getDescription();
                 break;
+            case "search":
+                result = searchProp(command);
         }
 
         return result ;
@@ -220,6 +233,27 @@ public class Game
 
         }
         return "";
+    }
+    
+    private String searchProp(Command command){
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            return "Search what?";
+        }
+        
+        String key;
+        String propToSearch = command.getSecondWord();
+        
+        for(Prop prop : currentRoom.props){
+            if (prop.getDescription().equalsIgnoreCase(propToSearch)) {
+                if(prop.getKey()){key="YES";}
+                else{key="NO";}
+                return "You found: " + prop.getDescription() + " - Contains key: " + key;
+            }
+        }
+    
+        // Prop not found
+        return "You don't find anything interesting.";
     }
     
     private String goRoom(Command command) 

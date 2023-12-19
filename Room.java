@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Class Room - a room in an adventure game.
  *
@@ -20,6 +22,8 @@ public class Room
     public Room southExit;
     public Room eastExit;
     public Room westExit;
+    
+    ArrayList<Prop> props = new ArrayList<>();
 
     /**
      * Create a room described "description". Initially, it has
@@ -57,6 +61,21 @@ public class Room
         }
     }
 
+    public void setProps(Prop prop1, Prop prop2, Prop prop3, Prop prop4){
+        if(prop1 != null){
+            props.add(prop1);
+        }
+        if(prop2 != null){
+            props.add(prop2);
+        }
+        if(prop3 != null){
+            props.add(prop3);
+        }
+        if(prop4 != null){
+            props.add(prop4);
+        }
+    }
+    
     /**
      * @return The description of the room.
      */
