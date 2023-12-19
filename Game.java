@@ -46,7 +46,7 @@ public class Game
     private void createRooms()
     {
         Room lobby, storage, prison, lab;
-        Prop bed, table, box, chest;
+        Prop box, pinnboard, fridge, bomb, chair, table, cupboard;
 
         // create the rooms
         lobby = new Room("in an untidy room", "You can see: -pinnboard- and -cupboard-");
@@ -54,18 +54,24 @@ public class Game
         prison = new Room("in a prison with Harambe sitting in the middle.", "You can see: -bomb- and -Harambe-");
         lab = new Room("in a hastily left lab with an enormous glas window at the north wall.", "You can see: -glass-, -chair- and -table-");
         
-        // create the Props
+        // create the Props (PROP-NAME, CONTAINSKEY, CONTAINSBANANA)
+        pinnboard = new Prop("pinnboard", false, false);
+        cupboard = new Prop("pinnboard", false, false);
+        fridge = new Prop("fridge", false, false);
         box = new Prop("box", false, false);
+        bomb = new Prop("bomb", false, false);
+        chair = new Prop("chair", false, false);
+        table = new Prop("table", false, false);
         
         // initialise room exits (north, east, south, west)
         lobby.setExits(storage, lab, null, null);
-        lobby.setProps(box, null, null,null);
+        lobby.setProps(pinnboard, cupboard, null,null);
         storage.setExits(null, prison, lobby, null);
-        storage.setProps(null, null, null,null);
+        storage.setProps(cupboard, fridge, box,null);
         prison.setExits(null, null, lab, storage);
-        prison.setProps(null, null, null,null);
+        prison.setProps(bomb, null, null,null);
         lab.setExits(prison, null, null, lobby);
-        lab.setProps(null, null, null,null);
+        lab.setProps(chair, table, null,null);
         
 
         currentRoom = lobby;  // start game lobby
@@ -247,7 +253,7 @@ public class Game
         for(Prop prop : currentRoom.props){
             if (prop.getDescription().equalsIgnoreCase(propToSearch)) {
                 if(prop.getKey()){key="YES";}
-                else{key="NO";}
+                else{key="NO :(";}
                 return "You found: " + prop.getDescription() + " - Contains key: " + key;
             }
         }
