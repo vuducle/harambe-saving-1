@@ -158,6 +158,8 @@ public class Game
             System.out.print("west ");
         }
         System.out.println();
+        MusicPlayer musicPlayer = new MusicPlayer("sound/harambemusic.wav");
+        musicPlayer.play();
     }
 
     /**
