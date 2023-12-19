@@ -15,6 +15,7 @@
 public class Room 
 {
     public String description;
+    public String details;
     public Room northExit;
     public Room southExit;
     public Room eastExit;
@@ -26,9 +27,10 @@ public class Room
      * "an open court yard".
      * @param description The room's description.
      */
-    public Room(String description) 
+    public Room(String description, String details) 
     {
         this.description = description;
+        this.details = details;
     }
 
     /**
@@ -61,6 +63,10 @@ public class Room
     public String getDescription()
     {
         return description;
+    }
+    
+    public String getDetails(){
+        return details;
     }
 
 }

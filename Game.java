@@ -46,10 +46,10 @@ public class Game
         Room lobby, storage, prison, lab;
 
         // create the rooms
-        lobby = new Room("in an untidy room");
-        storage = new Room("in a storage-room filled with all sorts of objects and exotic wildlife.");
-        prison = new Room("in a prison with Harambe sitting in the middle.");
-        lab = new Room("in a hastily left lab with an enormous glas window at the north wall.");
+        lobby = new Room("in an untidy room", "You can see: -pinnboard- and -cupboard-");
+        storage = new Room("in a storage-room filled with all sorts of objects and exotic wildlife.", "You can see: -cupboard-, -fridge- and -box-");
+        prison = new Room("in a prison with Harambe sitting in the middle.", "You can see: -bomb- and -Harambe-");
+        lab = new Room("in a hastily left lab with an enormous glas window at the north wall.", "You can see: -glass-, -chair- and -table-");
 
         // initialise room exits (north, east, south, west)
         lobby.setExits(storage, lab, null, null);
@@ -141,8 +141,6 @@ public class Game
             System.out.print("west ");
         }
         System.out.println();
-
-
     }
 
     /**
@@ -175,6 +173,12 @@ public class Game
                 result = quit(command);
                 timer.cancel();
                 break;
+            case "inspect":
+                result = currentRoom.getDetails();
+                break;
+            case "look":
+                result = currentRoom.getDescription();
+                break;
         }
 
         return result ;
@@ -191,7 +195,7 @@ public class Game
     {
         return "You are lost. You are alone. You wander"
         +"\n"
-        + "around at the university."
+        + "through the underground lab."
         +"\n"
         +"\n"
         +"Your command words are:"
@@ -200,6 +204,11 @@ public class Game
         +"\n";
     }
 
+    private String inspectRoom(){
+        System.out.print(currentRoom.details);
+        return null;
+    }
+    
     /** 
      * Try to go in one direction. If there is an exit, enter
      * the new room, otherwise print an error message.
@@ -255,7 +264,16 @@ public class Game
             }
             if(currentRoom.westExit != null) {
                 result += "west ";
-            }         
+            }   
+            
+            result += "\n" + "Actions: ";
+            
+            if(currentRoom.description != null){
+                result += "look" + ", ";
+            }
+            if(currentRoom.details != null){
+                result += "inspect";
+            }
         }
         return result + "\n";
     }
