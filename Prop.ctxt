@@ -1,12 +1,10 @@
 #BlueJ class context
 comment0.target=Prop
-comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Prop.\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Prop.\r\n\ \r\n\ @author\ (Harambe)\ \r\n\ @version\ (20.12.2023)\r\n
 comment1.params=description\ containsKey\ containsBanana
 comment1.target=Prop(java.lang.String,\ boolean,\ boolean)
-comment1.text=\r\n\ Create\ a\ Prop\ described\ "description".\ Initially,\ it\ has\r\n\ no\ exits.\ "description"\ is\ something\ like\ "a\ kitchen"\ or\r\n\ "an\ open\ court\ yard".\r\n\ @param\ description\ The\ Prop's\ description.\r\n
 comment2.params=
 comment2.target=java.lang.String\ getDescription()
-comment2.text=\r\n\ @return\ The\ description\ of\ the\ Prop.\r\n
 comment3.params=
 comment3.target=boolean\ getKey()
 numComments=4
