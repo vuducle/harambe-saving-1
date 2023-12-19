@@ -13,6 +13,8 @@ public enum CommandWord
 {
 
     GO("go"), 
+    
+    Look("look"), //details vom Raum ansehen
 
     QUIT("quit"), 
     EAT("eat"),

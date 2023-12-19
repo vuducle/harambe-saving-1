@@ -46,10 +46,10 @@ public class Game
         Room lobby, storage, prison, lab;
 
         // create the rooms
-        lobby = new Room("in an untidy room");
-        storage = new Room("in a storage-room filled with all sorts of objects and exotic wildlife.");
-        prison = new Room("in a prison with Harambe sitting in the middle.");
-        lab = new Room("in a hastily left lab with an enormous glas window at the north wall.");
+        lobby = new Room("in an untidy room", "You can see: -?-, -?- and -?-");
+        storage = new Room("in a storage-room filled with all sorts of objects and exotic wildlife.", "You can see: -?-, -?- and -?-");
+        prison = new Room("in a prison with Harambe sitting in the middle.", "You can see: -?-, -?- and -?-");
+        lab = new Room("in a hastily left lab with an enormous glas window at the north wall.", "You can see: -?-, -?- and -?-");
 
         // initialise room exits (north, east, south, west)
         lobby.setExits(storage, lab, null, null);
@@ -175,6 +175,9 @@ public class Game
                 result = quit(command);
                 timer.cancel();
                 break;
+            case "look":
+                result = currentRoom.getDetails();
+                break;
         }
 
         return result ;
@@ -191,7 +194,7 @@ public class Game
     {
         return "You are lost. You are alone. You wander"
         +"\n"
-        + "around at the university."
+        + "through the underground lab."
         +"\n"
         +"\n"
         +"Your command words are:"
@@ -255,7 +258,12 @@ public class Game
             }
             if(currentRoom.westExit != null) {
                 result += "west ";
-            }         
+            }   
+            
+            result += "\n" + "Actions: ";
+            if(currentRoom.details != null){
+                result += "look";
+            }
         }
         return result + "\n";
     }
