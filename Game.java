@@ -66,9 +66,9 @@ public class Game
         // initialise room exits (north, east, south, west)
         lobby.setExits(storage, lab, null, null);
         lobby.setProps(pinnboard, cupboard, null,null);
-        storage.setExits(null, prison, lobby, null);
+        storage.setExits(null, null, lobby, null);
         storage.setProps(cupboard, fridge, box,null);
-        prison.setExits(null, null, lab, storage);
+        prison.setExits(null, null, lab, null);
         prison.setProps(bomb, null, null,null);
         lab.setExits(prison, null, null, lobby);
         lab.setProps(chair, table, null,null);
@@ -221,7 +221,7 @@ public class Game
         +"\n"
         +"Your command words are:"
         +"\n"
-        +"   go quit help eat"
+        +"   go quit help eat inspect look search"
         +"\n";
     }
 
@@ -314,8 +314,9 @@ public class Game
                 result += "look" + ", ";
             }
             if(currentRoom.details != null){
-                result += "inspect";
+                result += "inspect" + ", search (item)";
             }
+            
         }
         return result + "\n";
     }
