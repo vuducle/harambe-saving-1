@@ -252,11 +252,12 @@ public class Game
         String key;
         String banana;
         String propToSearch = command.getSecondWord();
+        MusicPlayer searchSound = new MusicPlayer("sound/searchSound.wav");
         
         for(Prop prop : currentRoom.props){
             if (prop.getDescription().equalsIgnoreCase(propToSearch)) {
                 if(prop.getKey()){key="YES";}
-                else{key="NO :(";}
+                else{key="NO :("; searchSound.play();}
                 if(prop.getBanana()){banana=" but you found a banana.";}
                 return "You found: " + prop.getDescription() + " - Contains key: " + key;
             }
@@ -275,19 +276,24 @@ public class Game
 
         String direction = command.getSecondWord();
 
+        MusicPlayer doorOpen = new MusicPlayer("sound/doorOpen.wav");
         // Try to leave current room.
         Room nextRoom = null;
         if(direction.equals("north")) {
             nextRoom = currentRoom.northExit;
+            doorOpen.play();
         }
         if(direction.equals("east")) {
             nextRoom = currentRoom.eastExit;
+            doorOpen.play();
         }
         if(direction.equals("south")) {
             nextRoom = currentRoom.southExit;
+            doorOpen.play();
         }
         if(direction.equals("west")) {
             nextRoom = currentRoom.westExit;
+            doorOpen.play();
         }
         String result = "";
         if (nextRoom == null) {
