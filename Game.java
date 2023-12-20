@@ -1,4 +1,5 @@
 /**
+ *                      SAVING HARAMBE
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
  *  can walk around some scenery. That's all. It should really be extended 
@@ -22,6 +23,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.util.ArrayList;
+
 public class Game 
 {
     private Parser parser;
@@ -42,23 +45,36 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
+        Room lobby, storage, prison, lab;
+        Prop box, pinnboard, fridge, bomb, chair, table, cupboard;
 
         // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        lobby = new Room("in an untidy room", "You can see: -pinnboard- and -cupboard-");
+        storage = new Room("in a storage-room filled with all sorts of objects and exotic wildlife.", "You can see: -cupboard-, -fridge- and -box-");
+        prison = new Room("in a prison with Harambe sitting in the middle.", "You can see: -bomb- and -Harambe-");
+        lab = new Room("in a hastily left lab with an enormous glas window at the north wall.", "You can see: -glass-, -chair- and -table-");
+        
+        // create the Props (PROP-NAME, CONTAINSKEY, CONTAINSBANANA)
+        pinnboard = new Prop("pinnboard", false, false);
+        cupboard = new Prop("pinnboard", false, false);
+        fridge = new Prop("fridge", false, false);
+        box = new Prop("box", false, true);
+        bomb = new Prop("bomb", false, false);
+        chair = new Prop("chair", false, false);
+        table = new Prop("table", false, false);
+        
+        // initialise room exits (north, east, south, west)
+        lobby.setExits(storage, lab, null, null);
+        lobby.setProps(pinnboard, cupboard, null,null);
+        storage.setExits(null, null, lobby, null);
+        storage.setProps(cupboard, fridge, box,null);
+        prison.setExits(null, null, lab, null);
+        prison.setProps(bomb, null, null,null);
+        lab.setExits(prison, null, null, lobby);
+        lab.setProps(chair, table, null,null);
+        
 
-        // initialise room exits
-        outside.setExits(null, theater, lab, pub);
-        theater.setExits(null, null, null, outside);
-        pub.setExits(null, outside, null, null);
-        lab.setExits(outside, office, null, null);
-        office.setExits(null, null, null, lab);
-
-        currentRoom = outside;  // start game outside
+        currentRoom = lobby;  // start game lobby
     }
 
     /**
@@ -103,7 +119,7 @@ public class Game
     {
         System.out.println();
         System.out.println("Welcome to the world of Harambe!");
-        System.out.println("You need to try to save Harambe, before the bomb explodes!");
+        System.out.println("You need to try to save Harambe, before the bomb explodes! :(");
         System.out.println("--------------");
         System.out.println("You have " + TimerCount.countdown + " minutes!");
         System.out.println("--------------");
@@ -142,8 +158,8 @@ public class Game
             System.out.print("west ");
         }
         System.out.println();
-
-
+        MusicPlayer musicPlayer = new MusicPlayer("sound/harambemusic.wav");
+        musicPlayer.play();
     }
 
     /**
@@ -168,12 +184,22 @@ public class Game
                 break;
             case "go": 
                 result = goRoom(command);
-
+                break;
+            case "eat":
+                result = eat(command);
                 break;
             case "quit": 
                 result = quit(command);
                 timer.cancel();
                 break;
+            case "inspect":
+                result = currentRoom.getDetails();
+                break;
+            case "look":
+                result = currentRoom.getDescription();
+                break;
+            case "search":
+                result = searchProp(command);
         }
 
         return result ;
@@ -190,19 +216,56 @@ public class Game
     {
         return "You are lost. You are alone. You wander"
         +"\n"
-        + "around at the university."
+        + "through the underground lab."
         +"\n"
         +"\n"
         +"Your command words are:"
         +"\n"
-        +"   go quit help"
+        +"   go quit help eat inspect look search"
         +"\n";
     }
 
+    private String inspectRoom(){
+        System.out.print(currentRoom.details);
+        return null;
+    }
+    
     /** 
      * Try to go in one direction. If there is an exit, enter
      * the new room, otherwise print an error message.
      */
+    
+    private String eat(Command command){
+        if (!command.hasSecondWord()) {
+            return "You ate thin air. It was breathable.";
+
+        }
+        return "";
+    }
+    
+    private String searchProp(Command command){
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            return "Search what?";
+        }
+        
+        String key;
+        String banana;
+        String propToSearch = command.getSecondWord();
+        
+        for(Prop prop : currentRoom.props){
+            if (prop.getDescription().equalsIgnoreCase(propToSearch)) {
+                if(prop.getKey()){key="YES";}
+                else{key="NO :(";}
+                if(prop.getBanana()){banana=" but you found a banana.";}
+                return "You found: " + prop.getDescription() + " - Contains key: " + key;
+            }
+        }
+    
+        // Prop not found
+        return "You don't find anything interesting.";
+    }
+    
     private String goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
@@ -245,7 +308,17 @@ public class Game
             }
             if(currentRoom.westExit != null) {
                 result += "west ";
-            }         
+            }   
+            
+            result += "\n" + "Actions: ";
+            
+            if(currentRoom.description != null){
+                result += "look" + ", ";
+            }
+            if(currentRoom.details != null){
+                result += "inspect" + ", search (item)";
+            }
+            
         }
         return result + "\n";
     }

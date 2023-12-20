@@ -13,9 +13,14 @@ public enum CommandWord
 {
 
     GO("go"), 
+    
+    Look("look"), //wiederholt die description --> Aufgabe 2
+    
+    INSPECT("inspect"),//details vom Raum ansehen
+    SEARCH("search"),
 
     QUIT("quit"), 
-
+    EAT("eat"),
     HELP("help");
 
     private String word;

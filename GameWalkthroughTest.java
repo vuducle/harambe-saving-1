@@ -42,6 +42,11 @@ public class GameWalkthroughTest
         goAndSee("west",  "computing lab");
         goAndSee("north", "main entrance");
     }
+    
+    @Test
+    public void testPropSearch(){
+        assertEquals("You found: box - Contains key: NO", "search box");
+    }
 
     private void goAndSee(String direction, String whatShouldBeContained){
         //when
