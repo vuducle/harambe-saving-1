@@ -23,6 +23,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.util.ArrayList;
+
 public class Game 
 {
     private Parser parser;
@@ -44,18 +46,33 @@ public class Game
     private void createRooms()
     {
         Room lobby, storage, prison, lab;
+        Prop box, pinnboard, fridge, bomb, chair, table, cupboard;
 
         // create the rooms
         lobby = new Room("in an untidy room", "You can see: -pinnboard- and -cupboard-");
         storage = new Room("in a storage-room filled with all sorts of objects and exotic wildlife.", "You can see: -cupboard-, -fridge- and -box-");
         prison = new Room("in a prison with Harambe sitting in the middle.", "You can see: -bomb- and -Harambe-");
         lab = new Room("in a hastily left lab with an enormous glas window at the north wall.", "You can see: -glass-, -chair- and -table-");
-
+        
+        // create the Props (PROP-NAME, CONTAINSKEY, CONTAINSBANANA)
+        pinnboard = new Prop("pinnboard", false, false);
+        cupboard = new Prop("pinnboard", false, false);
+        fridge = new Prop("fridge", false, false);
+        box = new Prop("box", false, true);
+        bomb = new Prop("bomb", false, false);
+        chair = new Prop("chair", false, false);
+        table = new Prop("table", false, false);
+        
         // initialise room exits (north, east, south, west)
         lobby.setExits(storage, lab, null, null);
-        storage.setExits(null, prison, lobby, null);
-        prison.setExits(null, null, lab, storage);
+        lobby.setProps(pinnboard, cupboard, null,null);
+        storage.setExits(null, null, lobby, null);
+        storage.setProps(cupboard, fridge, box,null);
+        prison.setExits(null, null, lab, null);
+        prison.setProps(bomb, null, null,null);
         lab.setExits(prison, null, null, lobby);
+        lab.setProps(chair, table, null,null);
+        
 
         currentRoom = lobby;  // start game lobby
     }
@@ -141,6 +158,8 @@ public class Game
             System.out.print("west ");
         }
         System.out.println();
+        MusicPlayer musicPlayer = new MusicPlayer("sound/harambemusic.wav");
+        musicPlayer.play();
     }
 
     /**
@@ -179,6 +198,8 @@ public class Game
             case "look":
                 result = currentRoom.getDescription();
                 break;
+            case "search":
+                result = searchProp(command);
         }
 
         return result ;
@@ -200,7 +221,7 @@ public class Game
         +"\n"
         +"Your command words are:"
         +"\n"
-        +"   go quit help eat"
+        +"   go quit help eat inspect look search"
         +"\n";
     }
 
@@ -220,6 +241,29 @@ public class Game
 
         }
         return "";
+    }
+    
+    private String searchProp(Command command){
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            return "Search what?";
+        }
+        
+        String key;
+        String banana;
+        String propToSearch = command.getSecondWord();
+        
+        for(Prop prop : currentRoom.props){
+            if (prop.getDescription().equalsIgnoreCase(propToSearch)) {
+                if(prop.getKey()){key="YES";}
+                else{key="NO :(";}
+                if(prop.getBanana()){banana=" but you found a banana.";}
+                return "You found: " + prop.getDescription() + " - Contains key: " + key;
+            }
+        }
+    
+        // Prop not found
+        return "You don't find anything interesting.";
     }
     
     private String goRoom(Command command) 
@@ -272,8 +316,9 @@ public class Game
                 result += "look" + ", ";
             }
             if(currentRoom.details != null){
-                result += "inspect";
+                result += "inspect" + ", search (item)";
             }
+            
         }
         return result + "\n";
     }

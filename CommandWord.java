@@ -17,6 +17,7 @@ public enum CommandWord
     Look("look"), //wiederholt die description --> Aufgabe 2
     
     INSPECT("inspect"),//details vom Raum ansehen
+    SEARCH("search"),
 
     QUIT("quit"), 
     EAT("eat"),
