@@ -1,11 +1,10 @@
 public class Welcome extends Command
 {
-    public Welcome(){
-        super(CommandWord.WELCOME,"");
-    }
-    public Welcome(CommandWord firstWord, String secondWord){
+    
+    public Welcome(String firstWord, String secondWord){
         super(firstWord, secondWord);
     }
+    
     public String processCommand(Player player) {
         Room currentRoom = player.getCurrentRoom();
         String result = "\n";

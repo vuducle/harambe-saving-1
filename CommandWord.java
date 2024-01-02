@@ -37,11 +37,11 @@ public enum CommandWord
        private static Map<CommandWord, BiFunction<CommandWord,String,Command>> commandFactories = new LinkedHashMap<>();
 
     static {
-        commandFactories.put(GO, (w1,w2)-> new Go(w1,w2));
-        commandFactories.put(QUIT, (w1,w2)-> new Quit(w1,w2));
-        commandFactories.put(HELP, (w1,w2)-> new Help(w1,w2));
-        commandFactories.put(UNKNOWN, (w1,w2)-> new Unknown(w1,w2));
-        commandFactories.put(WELCOME, (w1,w2)-> new Welcome(w1,w2));
+        commandFactories.put(GO, (w1,w2)-> new Go("go",w2));
+        commandFactories.put(QUIT, (w1,w2)-> new Quit("quit",w2));
+        commandFactories.put(HELP, (w1,w2)-> new Help("help",w2));
+        commandFactories.put(UNKNOWN, (w1,w2)-> new Unknown("unknown",w2));
+        commandFactories.put(WELCOME, (w1,w2)-> new Welcome("welcome",w2));
     
    }
 

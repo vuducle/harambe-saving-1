@@ -1,11 +1,14 @@
 #BlueJ class context
 comment0.target=CommandWord
-comment0.text=\r\n\ This\ class\ is\ part\ of\ the\ "World\ of\ Zuul"\ application.\ \r\n\ "World\ of\ Zuul"\ is\ a\ very\ simple,\ text\ based\ adventure\ game.\ \ \r\n\ \r\n\ This\ class\ holds\ an\ enumeration\ of\ all\ command\ words\ known\ to\ the\ game.\r\n\ It\ is\ used\ to\ recognise\ commands\ as\ they\ are\ typed\ in.\r\n\r\n\ @author\ \ Michael\ K\u00F6lling\ and\ David\ J.\ Barnes\r\n\ @version\ 2016.02.29\r\n
 comment1.params=word
 comment1.target=CommandWord(java.lang.String)
 comment2.params=
 comment2.target=java.lang.String\ toString()
 comment3.params=aString
 comment3.target=boolean\ isCommand(java.lang.String)
-comment3.text=\r\n\ Check\ whether\ a\ given\ String\ is\ a\ valid\ command\ word.\ \r\n\ @return\ true\ if\ a\ given\ string\ is\ a\ valid\ command,\r\n\ false\ if\ it\ isn't.\r\n
-numComments=4
+comment3.text=\n\ Check\ whether\ a\ given\ String\ is\ a\ valid\ command\ word.\ \n\ @return\ true\ if\ a\ given\ string\ is\ a\ valid\ command,\n\ false\ if\ it\ isn't.\n
+comment4.params=commandWord
+comment4.target=CommandWord\ forString(java.lang.String)
+comment5.params=firstWord\ secondWord
+comment5.target=Command\ buildCommand(java.lang.String,\ java.lang.String)
+numComments=6

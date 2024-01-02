@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Player
-comment0.text=\r\n\ This\ class\ represents\ the\ Game\ State\ for\ the\ Single\ Player.\r\n\r\n
+comment0.text=\n\ This\ class\ represents\ the\ Game\ State\ for\ the\ Single\ Player.\n\n
 comment1.params=
 comment1.target=Room\ getCurrentRoom()
 comment2.params=currentRoom

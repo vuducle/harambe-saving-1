@@ -1,6 +1,6 @@
 public class Quit extends Command
 {
-    public Quit(CommandWord firstWord, String secondWord){
+    public Quit(String firstWord, String secondWord){
         super(firstWord, secondWord);
     }
 

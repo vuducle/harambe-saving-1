@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Prop
-comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Prop.\r\n\ \r\n\ @author\ (Harambe)\ \r\n\ @version\ (20.12.2023)\r\n
+comment0.text=\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Prop.\n\ \n\ @author\ (Harambe)\ \n\ @version\ (20.12.2023)\n
 comment1.params=description\ containsKey\ containsBanana
 comment1.target=Prop(java.lang.String,\ boolean,\ boolean)
 comment2.params=

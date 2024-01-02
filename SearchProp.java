@@ -1,6 +1,6 @@
 public class SearchProp extends Command
 {
-    public SearchProp(CommandWord firstWord, String secondWord){
+    public SearchProp(String firstWord, String secondWord){
         super(firstWord, secondWord);
     }
     

@@ -2,7 +2,7 @@ public class Go extends Command
 
 {
 
-    public Go(CommandWord firstWord, String secondWord){
+    public Go(String firstWord, String secondWord){
         super(firstWord, secondWord);
     }
 
