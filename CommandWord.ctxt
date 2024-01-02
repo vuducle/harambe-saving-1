@@ -11,4 +11,6 @@ comment4.params=commandWord
 comment4.target=CommandWord\ forString(java.lang.String)
 comment5.params=firstWord\ secondWord
 comment5.target=Command\ buildCommand(java.lang.String,\ java.lang.String)
-numComments=6
+comment6.params=
+comment6.target=java.lang.String\ getCommandWords()
+numComments=7

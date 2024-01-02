@@ -87,5 +87,12 @@ public enum CommandWord
         CommandWord key = forString(firstWord);
         return commandFactories.get(key).apply(key, secondWord);
     }
-
+    public static String getCommandWords(){
+        return commandFactories
+        .keySet()
+        .stream()
+        .filter(key -> !UNKNOWN.equals(key))
+        .map(key -> key.toString())
+        .collect(Collectors.joining(" "));
+    }
 }
