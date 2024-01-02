@@ -1,6 +1,6 @@
 public class InspectRoom extends Command
 {
-    public InspectRoom(String firstWord, String secondWord){
+    public InspectRoom (String firstWord, String secondWord){
         super(firstWord, secondWord);
     }
 
@@ -11,7 +11,8 @@ public class InspectRoom extends Command
      */
     public String processCommand(Player player) 
     {
-        System.out.print(player.currentRoom.details);
-        return null;
+        //System.out.print(player.currentRoom.details);
+        String result = player.currentRoom.details;
+        return result;
     }
 }

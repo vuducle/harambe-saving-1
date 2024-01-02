@@ -24,7 +24,7 @@ public enum CommandWord
     
     GO("go"), 
     
-    Look("look"), //wiederholt die description --> Aufgabe 2
+    LOOK("look"), //wiederholt die description --> Aufgabe 2
     
     INSPECT("inspect"),//details vom Raum ansehen
     SEARCH("search"),
@@ -37,11 +37,15 @@ public enum CommandWord
        private static Map<CommandWord, BiFunction<CommandWord,String,Command>> commandFactories = new LinkedHashMap<>();
 
     static {
-        commandFactories.put(GO, (w1,w2)-> new Go("go",w2));
+        commandFactories.put(GO, (w1,w2)-> new Go("new",w2));
         commandFactories.put(QUIT, (w1,w2)-> new Quit("quit",w2));
         commandFactories.put(HELP, (w1,w2)-> new Help("help",w2));
         commandFactories.put(UNKNOWN, (w1,w2)-> new Unknown("unknown",w2));
         commandFactories.put(WELCOME, (w1,w2)-> new Welcome("welcome",w2));
+        commandFactories.put(INSPECT, (w1,w2)-> new InspectRoom("inspect",w2));
+        commandFactories.put(EAT, (w1,w2)-> new Eat("eat",w2));
+        commandFactories.put(SEARCH, (w1,w2)-> new SearchProp("search",w2));
+        commandFactories.put(LOOK, (w1,w2)-> new Unknown("look", w2));
     
    }
 
