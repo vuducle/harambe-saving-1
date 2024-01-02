@@ -23,18 +23,20 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.util.ArrayList;
+import java.util.ArrayList; // where did all the imports go in the hierachy?
 
 public class Game 
 {
     private Parser parser;
-    private Room currentRoom;
+    private Player player;
+    // private Room currentRoom;
     Timer timer = new Timer();
     /**
      * Create the game and initialise its internal map.
      */
     public Game() 
     {
+        player = new Player();
         createRooms();
         parser = new Parser();
         timer.schedule(new TimerCount(), 0, 10000);
@@ -74,7 +76,7 @@ public class Game
         lab.setProps(chair, table, null,null);
         
 
-        currentRoom = lobby;  // start game lobby
+        player.setCurrentRoom(lobby);
     }
 
     /**
@@ -82,7 +84,23 @@ public class Game
      */
     public void play() 
     {            
-        printWelcome();
+        System.out.println(new Welcome().processCommand(player));
+        
+        // TODO: Refactor the image generation
+        String bildDateiPfad = "harambe.png";
+
+        try {
+            BufferedImage bild = ImageIO.read(new File(bildDateiPfad));
+
+            JFrame frame = new JFrame();
+            frame.setSize(400, 400);
+            JLabel label = new JLabel(new ImageIcon(bild));
+            frame.add(label);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         // Enter the main command loop.  Here we repeatedly read commands and
         // execute them until the game is over.
@@ -90,7 +108,7 @@ public class Game
         boolean finished = false;
         while (! finished) {
             Command command = parser.getCommand();
-            String output = processCommand(command);
+            String output = command.processCommand(player);
             finished = (null == output);
             if (!finished)
             {
@@ -109,238 +127,6 @@ public class Game
      */
     public String processInputLine(String line){
         Command command = parser.getCommand(line);
-        return processCommand(command);
-    }
-
-    /**
-     * Print out the opening message for the player.
-     */
-    private void printWelcome()
-    {
-        System.out.println();
-        System.out.println("Welcome to the world of Harambe!");
-        System.out.println("You need to try to save Harambe, before the bomb explodes! :(");
-        System.out.println("--------------");
-        System.out.println("You have " + TimerCount.countdown + " minutes!");
-        System.out.println("--------------");
-        System.out.println("Type 'help' if you need help.");
-
-
-        String bildDateiPfad = "harambe.png";
-
-        try {
-            BufferedImage bild = ImageIO.read(new File(bildDateiPfad));
-
-            JFrame frame = new JFrame();
-            frame.setSize(400, 400);
-            JLabel label = new JLabel(new ImageIcon(bild));
-            frame.add(label);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setVisible(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        System.out.println();
-        System.out.println("You are " + currentRoom.getDescription());
-        System.out.print("Exits: ");
-        if(currentRoom.northExit != null) {
-            System.out.print("north ");
-        }
-        if(currentRoom.eastExit != null) {
-            System.out.print("east ");
-        }
-        if(currentRoom.southExit != null) {
-            System.out.print("south ");
-        }
-        if(currentRoom.westExit != null) {
-            System.out.print("west ");
-        }
-        System.out.println();
-        MusicPlayer musicPlayer = new MusicPlayer("sound/harambemusic.wav");
-        musicPlayer.play();
-    }
-
-    /**
-     * Given a command, process (that is: execute) the command.
-     * @param command The command to be processed.
-     * @return true If the command ends the game, false otherwise.
-     */
-    private String processCommand(Command command) 
-    {
-        boolean wantToQuit = false;
-
-        if(command.isUnknown()) {
-            return "I don't know what you mean...";       
-        }
-        String result = null;
-        String commandWord = command.getCommandWord();
-        // see https://docs.oracle.com/javase/8/docs/technotes/guides/language/strings-switch.html
-        
-        switch(commandWord){
-            case "help": 
-                result = printHelp();
-                break;
-            case "go": 
-                result = goRoom(command);
-                break;
-            case "eat":
-                result = eat(command);
-                break;
-            case "quit": 
-                result = quit(command);
-                timer.cancel();
-                break;
-            case "inspect":
-                result = currentRoom.getDetails();
-                break;
-            case "look":
-                result = currentRoom.getDescription();
-                break;
-            case "search":
-                result = searchProp(command);
-        }
-
-        return result ;
-    }
-
-    // implementations of user commands:
-
-    /**
-     * Print out some help information.
-     * Here we print some stupid, cryptic message and a list of the 
-     * command words.
-     */
-    private String printHelp() 
-    {
-        return "You are lost. You are alone. You wander"
-        +"\n"
-        + "through the underground lab."
-        +"\n"
-        +"\n"
-        +"Your command words are:"
-        +"\n"
-        +"   go quit help eat inspect look search"
-        +"\n";
-    }
-
-    private String inspectRoom(){
-        System.out.print(currentRoom.details);
-        return null;
-    }
-    
-    /** 
-     * Try to go in one direction. If there is an exit, enter
-     * the new room, otherwise print an error message.
-     */
-    
-    private String eat(Command command){
-        if (!command.hasSecondWord()) {
-            return "You ate thin air. It was breathable.";
-
-        }
-        return "";
-    }
-    
-    private String searchProp(Command command){
-        if(!command.hasSecondWord()) {
-            // if there is no second word, we don't know where to go...
-            return "Search what?";
-        }
-        
-        String key;
-        String banana;
-        String propToSearch = command.getSecondWord();
-        MusicPlayer searchSound = new MusicPlayer("sound/searchSound.wav");
-        
-        for(Prop prop : currentRoom.props){
-            if (prop.getDescription().equalsIgnoreCase(propToSearch)) {
-                if(prop.getKey()){key="YES";}
-                else{key="NO :("; searchSound.play();}
-                if(prop.getBanana()){banana=" but you found a banana.";}
-                return "You found: " + prop.getDescription() + " - Contains key: " + key;
-            }
-        }
-    
-        // Prop not found
-        return "You don't find anything interesting.";
-    }
-    
-    private String goRoom(Command command) 
-    {
-        if(!command.hasSecondWord()) {
-            // if there is no second word, we don't know where to go...
-            return "Go where?";
-        }
-
-        String direction = command.getSecondWord();
-
-        MusicPlayer doorOpen = new MusicPlayer("sound/doorOpen.wav");
-        // Try to leave current room.
-        Room nextRoom = null;
-        if(direction.equals("north")) {
-            nextRoom = currentRoom.northExit;
-            doorOpen.play();
-        }
-        if(direction.equals("east")) {
-            nextRoom = currentRoom.eastExit;
-            doorOpen.play();
-        }
-        if(direction.equals("south")) {
-            nextRoom = currentRoom.southExit;
-            doorOpen.play();
-        }
-        if(direction.equals("west")) {
-            nextRoom = currentRoom.westExit;
-            doorOpen.play();
-        }
-        String result = "";
-        if (nextRoom == null) {
-            result += "There is no door!";
-        }
-        else {
-            currentRoom = nextRoom;
-            result += "You are " + currentRoom.getDescription()+"\n";
-            result += "Exits: ";
-            if(currentRoom.northExit != null) {
-                result += "north ";
-            }
-            if(currentRoom.eastExit != null) {
-                result += "east ";
-            }
-            if(currentRoom.southExit != null) {
-                result += "south ";
-            }
-            if(currentRoom.westExit != null) {
-                result += "west ";
-            }   
-            
-            result += "\n" + "Actions: ";
-            
-            if(currentRoom.description != null){
-                result += "look" + ", ";
-            }
-            if(currentRoom.details != null){
-                result += "inspect" + ", search (item)";
-            }
-            
-        }
-        return result + "\n";
-    }
-
-    /** 
-     * "Quit" was entered. Check the rest of the command to see
-     * whether we really quit the game.
-     * @return true, if this command quits the game, false otherwise.
-     */
-    private String quit(Command command) 
-    {
-        if(command.hasSecondWord()) {
-            return "Quit what?";
-        }
-        else {
-            return null;  // signal that we want to quit
-        }
+        return command.processCommand(player);
     }
 }

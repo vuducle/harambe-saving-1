@@ -9,9 +9,19 @@
  * @version 2016.02.29
  */
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.function.Supplier;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.function.BiFunction;
+import java.util.LinkedHashMap;
+
 public enum CommandWord
 {
 
+    WELCOME("welcome"),
+    
     GO("go"), 
     
     Look("look"), //wiederholt die description --> Aufgabe 2
@@ -21,7 +31,19 @@ public enum CommandWord
 
     QUIT("quit"), 
     EAT("eat"),
+    UNKNOWN("unknown"),
     HELP("help");
+
+       private static Map<CommandWord, BiFunction<CommandWord,String,Command>> commandFactories = new LinkedHashMap<>();
+
+    static {
+        commandFactories.put(GO, (w1,w2)-> new Go(w1,w2));
+        commandFactories.put(QUIT, (w1,w2)-> new Quit(w1,w2));
+        commandFactories.put(HELP, (w1,w2)-> new Help(w1,w2));
+        commandFactories.put(UNKNOWN, (w1,w2)-> new Unknown(w1,w2));
+        commandFactories.put(WELCOME, (w1,w2)-> new Welcome(w1,w2));
+    
+   }
 
     private String word;
     private CommandWord(String word){
@@ -48,4 +70,18 @@ public enum CommandWord
         // if we get here, the string was not found in the commands
         return false;
     }
+
+    public static CommandWord forString(String commandWord){
+        for(CommandWord cw: values()) {
+            if(cw.toString().equals(commandWord))
+                return cw;
+        }
+        return UNKNOWN;
+    }
+
+    public static Command buildCommand(String firstWord, String secondWord){
+        CommandWord key = forString(firstWord);
+        return commandFactories.get(key).apply(key, secondWord);
+    }
+
 }

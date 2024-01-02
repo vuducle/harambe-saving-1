@@ -17,7 +17,7 @@
  * @version 2016.02.29
  */
 
-public class Command
+public abstract class Command
 {
     private String commandWord;
     private String secondWord;
@@ -68,6 +68,13 @@ public class Command
     public boolean hasSecondWord()
     {
         return (secondWord != null);
+    }
+    
+    public abstract String processCommand(Player player);
+    
+    @Override
+    public String toString(){
+        return getClass().getName()+": "+commandWord+" "+secondWord;
     }
 }
 
