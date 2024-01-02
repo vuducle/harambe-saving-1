@@ -1,6 +1,6 @@
 public class InspectRoom extends Command
 {
-    public InspectRoom (String firstWord, String secondWord){
+    public InspectRoom (CommandWord firstWord, String secondWord){
         super(firstWord, secondWord);
     }
 

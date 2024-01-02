@@ -1,6 +1,6 @@
 public class Eat extends Command
 {
-    public Eat(String firstWord, String secondWord){
+    public Eat(CommandWord firstWord, String secondWord){
         super(firstWord, secondWord);
     }
 

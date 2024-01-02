@@ -1,7 +1,11 @@
 public class Welcome extends Command
 {
     
-    public Welcome(String firstWord, String secondWord){
+    public Welcome(){
+        super(CommandWord.WELCOME,"");
+    }
+
+    public Welcome(CommandWord firstWord, String secondWord){
         super(firstWord, secondWord);
     }
     

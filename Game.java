@@ -85,7 +85,7 @@ public class Game
     public void play() 
     {            
         //TODO: need to change the Code
-        System.out.println(new Welcome("t", "t").processCommand(player));
+        System.out.println(new Welcome().processCommand(player));
         
         // TODO: Refactor the image generation
         String bildDateiPfad = "harambe.png";

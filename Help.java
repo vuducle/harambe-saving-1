@@ -1,7 +1,7 @@
 public class Help extends Command
 {
 
-    public Help(String firstWord, String secondWord){
+    public Help(CommandWord firstWord, String secondWord){
         super(firstWord, secondWord);
     }
 
