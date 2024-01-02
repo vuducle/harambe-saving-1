@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Pipe
+comment1.params=name
+comment1.target=Pipe(java.lang.String)
+comment10.params=
+comment10.target=void\ run()
+comment2.params=sysOut\ name
+comment2.target=Pipe(java.io.PrintStream,\ java.lang.String)
+comment3.params=
+comment3.target=java.io.OutputStream\ getOutputStream()
+comment4.params=
+comment4.target=java.lang.String\ readAll()
+comment5.params=
+comment5.target=java.lang.String\ readLine()
+comment6.params=
+comment6.target=boolean\ hasNextLine()
+comment7.params=
+comment7.target=void\ close()
+comment8.params=
+comment8.target=void\ waitUntilInputRead()
+comment9.params=b
+comment9.target=void\ write(int)
+numComments=11

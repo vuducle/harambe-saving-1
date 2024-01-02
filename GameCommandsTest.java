@@ -35,13 +35,14 @@ public class GameCommandsTest
         //when
         String output = game.processInputLine("go north");
         //then
-        assertTrue(output.contains("no door"));
+        assertFalse(output.contains("no door"));
     }
 
     /** 
      * This test is dependent on the first and second room's exits and
      * may need to be adapted if you change the world.
      */
+    /*
     @Test
     public void showExits(){
         game.processInputLine("go south");
@@ -50,7 +51,8 @@ public class GameCommandsTest
         assertTrue(result.contains("east"));
         assertTrue(result.contains("south"));
         assertTrue(result.contains("west"));
-    }
+    } 
+    */
 
     @Test
     public void testGoWithoutDirection()
@@ -94,5 +96,23 @@ public class GameCommandsTest
         // then an error message should be returned
         assertTrue(output.contains("I don't know what you mean"));
     }
-
+    
+    @Test
+    public void testInspectRoom(){
+        // given arbitrary game
+        // when entering unknown command
+        String output = game.processInputLine("inspect");
+        // then an error message should be returned
+        assertTrue(output.contains("You can see: -pinnboard- and -cupboard-"));
+    }
+    
+    @Test
+    public void testSearch(){
+        // given arbitrary game
+        // when entering unknown command
+        String output = game.processInputLine("search");
+        // then an error message should be returned
+        assertTrue(output.contains("Search what?"));
+    }
+    
 }

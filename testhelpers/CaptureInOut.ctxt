@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=CaptureInOut
+comment1.params=
+comment1.target=CaptureInOut()
+comment2.params=
+comment2.target=void\ redirectInOut()
+comment3.params=
+comment3.target=void\ restoreStreams()
+comment4.params=line
+comment4.target=void\ provideInputLine(java.lang.String)
+comment5.params=
+comment5.target=java.lang.String\ getOutputLine()
+comment6.params=
+comment6.target=java.lang.String\ getOutput()
+comment7.params=filename
+comment7.target=java.lang.String\ file2string(java.lang.String)
+numComments=8
