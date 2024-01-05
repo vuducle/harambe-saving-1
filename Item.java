@@ -8,10 +8,16 @@
 public class Item
 {
     public String description;
-    public int ammount;
-    public Item(String description, int ammount) 
+    public int amount;
+    public Item(String description, int amount) 
     {
         this.description = description;
-        this.ammount = ammount;
+        this.amount = amount;
+    }
+    public String getDescription(){
+        return description;
+    }
+    public int getAmount(){
+        return amount;
     }
 }

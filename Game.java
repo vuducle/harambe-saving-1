@@ -65,9 +65,14 @@ public class Game
         chair = new Prop("chair", false, false);
         table = new Prop("table", false, false);
         
+        // create the Items (Item-Description, Amount)
+        Banana banana = new Banana("Yellow banana", 3);
+        
         // initialise room exits (north, east, south, west)
         lobby.setExits(storage, lab, null, null);
         lobby.setProps(pinnboard, cupboard, null,null);
+        lobby.setItem(banana);
+        lobby.getItems();
         storage.setExits(null, null, lobby, null);
         storage.setProps(cupboard, fridge, box,null);
         prison.setExits(null, null, lab, null);

@@ -22,8 +22,10 @@ public class Room
     public Room southExit;
     public Room eastExit;
     public Room westExit;
+    public Item item;
     
     ArrayList<Prop> props = new ArrayList<>();
+    ArrayList<Item> items = new ArrayList<>();
 
     /**
      * Create a room described "description". Initially, it has
@@ -74,6 +76,14 @@ public class Room
         if(prop4 != null){
             props.add(prop4);
         }
+    }
+    
+    public void setItem(Item item){
+        items.add(item);
+    }
+    public ArrayList getItems(){
+        System.out.println(items);
+        return items;
     }
     
     /**
