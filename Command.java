@@ -44,7 +44,13 @@ public abstract class Command
     {
         return commandWord;
     }
+    public static String getCommandWords() {
+        // You might have a list of command words, for example:
+        String[] commandWords = {"go", "quit", "help", "look", "eat"};
 
+        // Join the command words into a single string
+        return String.join(", ", commandWords);
+    }
     /**
      * @return The second word of this command. Returns null if there was no
      * second word.
