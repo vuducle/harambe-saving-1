@@ -20,4 +20,8 @@ public class Item
     public int getAmount(){
         return amount;
     }
+
+    public String getDescriptionString() {
+        return "A " + description + " with an amount of " + amount + ".";
+    }
 }

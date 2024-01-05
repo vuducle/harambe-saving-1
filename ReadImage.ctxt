@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=ReadImage
+comment0.text=\r\n\ Read\ and\ open\ image\ from\ file\r\n\ refactor\ the\ code,\ it\ was\ before\ in\ the\ main\ game\ file\r\n\ @version\ 0.1\r\n
+comment1.params=BildDateiPfad
+comment1.target=void\ read(java.lang.String)
+numComments=2

@@ -32,7 +32,8 @@ public enum CommandWord
     QUIT("quit"), 
     EAT("eat"),
     UNKNOWN("unknown"),
-    HELP("help");
+    HELP("help"),
+    BACK("back");
 
        private static Map<CommandWord, BiFunction<CommandWord,String,Command>> commandFactories = new LinkedHashMap<>();
 
@@ -46,7 +47,7 @@ public enum CommandWord
         commandFactories.put(EAT, (w1,w2)-> new Eat(w1,w2));
         commandFactories.put(SEARCH, (w1,w2)-> new SearchProp(w1,w2));
         commandFactories.put(LOOK, (w1,w2)-> new Unknown(w1, w2));
-    
+        commandFactories.put(BACK, (w1,w2)-> new Back(w1, w2));
    }
 
     private String word;
