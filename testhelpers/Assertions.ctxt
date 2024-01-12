@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Assertions
+comment0.text=\r\n\ This\ class\ contains\ methods\ to\ be\ re-used\r\n\ in\ Unit\ Tests\ Classes.\r\n\r\n\ @author\ \ Barne\ Kleinen\r\n
+comment1.params=
+comment1.target=void\ doNothing()
+comment1.text=\r\n\ just\ here\ to\ make\ BlueJ\ show\ this\ as\ unit\ test\r\n
+comment2.params=expected\ output
+comment2.target=void\ assertAllLinesContained(java.lang.String,\ java.lang.String)
+numComments=3

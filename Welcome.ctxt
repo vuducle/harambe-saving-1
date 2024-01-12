@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Welcome
+comment1.params=
+comment1.target=Welcome()
+comment2.params=firstWord\ secondWord
+comment2.target=Welcome(CommandWord,\ java.lang.String)
+comment3.params=player
+comment3.target=java.lang.String\ processCommand(Player)
+numComments=4

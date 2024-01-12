@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=GameHarambeTest
+comment0.text=\r\n\ Die\ Test-Klasse\ GameHarambeTest.\r\n\r\n\ @author\ \ (Ihr\ Name)\r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment1.params=
+comment1.target=GameHarambeTest()
+comment1.text=\r\n\ Konstruktor\ fuer\ die\ Test-Klasse\ GameHarambeTest\r\n
+comment2.params=
+comment2.target=void\ setUp()
+comment2.text=\r\n\ \ Setzt\ das\ Testger\u00FCst\ fuer\ den\ Test.\r\n\r\n\ Wird\ vor\ jeder\ Testfall-Methode\ aufgerufen.\r\n
+comment3.params=
+comment3.target=void\ tearDown()
+comment3.text=\r\n\ Gibt\ das\ Testger\u00FCst\ wieder\ frei.\r\n\r\n\ Wird\ nach\ jeder\ Testfall-Methode\ aufgerufen.\r\n
+comment4.params=
+comment4.target=void\ testRoomItems()
+numComments=5
