@@ -8,8 +8,13 @@ comment2.params=
 comment2.target=void\ testGoNorthNoDoor()
 comment2.text=\ \n\ This\ test\ is\ dependent\ on\ the\ first\ room's\ exits\ and\n\ may\ need\ to\ be\ adapted\ if\ you\ change\ the\ world.\n
 comment3.params=
+<<<<<<< Updated upstream
 comment3.target=void\ showExits()
 comment3.text=\ \n\ This\ test\ is\ dependent\ on\ the\ first\ and\ second\ room's\ exits\ and\n\ may\ need\ to\ be\ adapted\ if\ you\ change\ the\ world.\n
+=======
+comment3.target=void\ testGoWithoutDirection()
+comment3.text=\n\ \ \ \ @Test\n\ \ \ \ public\ void\ showExits(){\n\ \ \ \ \ \ \ \ game.processInputLine("go\ south");\n\ \ \ \ \ \ \ \ String\ result\ \=\ game.processInputLine("go\ north");\n\ \ \ \ \ \ \ \ assertTrue(result.contains("Exits\:"));\n\ \ \ \ \ \ \ \ assertTrue(result.contains("east"));\n\ \ \ \ \ \ \ \ assertTrue(result.contains("south"));\n\ \ \ \ \ \ \ \ assertTrue(result.contains("west"));\n\ \ \ \ }\ \n
+>>>>>>> Stashed changes
 comment4.params=
 comment4.target=void\ testGoWithoutDirection()
 comment5.params=

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Go
+comment1.params=firstWord\ secondWord
+comment1.target=Go(CommandWord,\ java.lang.String)
+comment2.params=player
+comment2.target=java.lang.String\ processCommand(Player)
+comment2.text=\ \n\ Try\ to\ go\ in\ one\ direction.\ If\ there\ is\ an\ exit,\ enter\n\ the\ new\ room,\ otherwise\ print\ an\ error\ message.\n
+numComments=3

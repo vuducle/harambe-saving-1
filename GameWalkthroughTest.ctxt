@@ -7,6 +7,14 @@ comment1.text=\n\ Sets\ up\ the\ test\ fixture.\n\n\ Called\ before\ every\ test
 comment2.params=
 comment2.target=void\ completeWalkthrough()
 comment2.text=\n\ This\ test\ needs\ to\ be\ adapted\ to\ your\ world.\n\ If\ your\ world\ becomes\ very\ complicated,\ you\ \n\ may\ want\ to\ split\ the\ walkthrough\ up\ to\ \n\ several\ tests.\n
+<<<<<<< Updated upstream
 comment3.params=direction\ whatShouldBeContained
 comment3.target=void\ goAndSee(java.lang.String,\ java.lang.String)
 numComments=4
+=======
+comment3.params=
+comment3.target=void\ testPropSearch()
+comment4.params=direction\ whatShouldBeContained
+comment4.target=void\ goAndSee(java.lang.String,\ java.lang.String)
+numComments=5
+>>>>>>> Stashed changes

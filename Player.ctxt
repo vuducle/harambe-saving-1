@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Player
+comment0.text=\n\ This\ class\ represents\ the\ Game\ State\ for\ the\ Single\ Player.\n\n
+comment1.params=
+comment1.target=Player()
+comment2.params=
+comment2.target=Room\ getCurrentRoom()
+comment3.params=currentRoom
+comment3.target=void\ setCurrentRoom(Room)
+comment4.params=
+comment4.target=void\ goBack()
+numComments=5

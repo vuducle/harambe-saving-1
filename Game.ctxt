@@ -13,6 +13,7 @@ comment3.text=\n\ \ Main\ play\ routine.\ \ Loops\ until\ end\ of\ play.\n
 comment4.params=line
 comment4.target=java.lang.String\ processInputLine(java.lang.String)
 comment4.text=\n\ This\ is\ a\ further\ method\ added\ by\ BK\ to\n\ provide\ a\ clearer\ interface\ that\ can\ be\ tested\:\n\ Game\ processes\ a\ commandLine\ and\ returns\ output.\n\ @param\ commandLine\ -\ the\ line\ entered\ as\ String\n\ @return\ output\ of\ the\ command\n
+<<<<<<< Updated upstream
 comment5.params=
 comment5.target=void\ printWelcome()
 comment5.text=\n\ Print\ out\ the\ opening\ message\ for\ the\ player.\n
@@ -29,3 +30,6 @@ comment9.params=command
 comment9.target=java.lang.String\ quit(Command)
 comment9.text=\ \n\ "Quit"\ was\ entered.\ Check\ the\ rest\ of\ the\ command\ to\ see\n\ whether\ we\ really\ quit\ the\ game.\n\ @return\ true,\ if\ this\ command\ quits\ the\ game,\ false\ otherwise.\n
 numComments=10
+=======
+numComments=5
+>>>>>>> Stashed changes

@@ -8,4 +8,14 @@ comment2.target=java.lang.String\ toString()
 comment3.params=aString
 comment3.target=boolean\ isCommand(java.lang.String)
 comment3.text=\n\ Check\ whether\ a\ given\ String\ is\ a\ valid\ command\ word.\ \n\ @return\ true\ if\ a\ given\ string\ is\ a\ valid\ command,\n\ false\ if\ it\ isn't.\n
+<<<<<<< Updated upstream
 numComments=4
+=======
+comment4.params=commandWord
+comment4.target=CommandWord\ forString(java.lang.String)
+comment5.params=firstWord\ secondWord
+comment5.target=Command\ buildCommand(java.lang.String,\ java.lang.String)
+comment6.params=
+comment6.target=java.lang.String\ getCommandWords()
+numComments=7
+>>>>>>> Stashed changes
