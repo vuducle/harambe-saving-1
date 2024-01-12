@@ -17,9 +17,9 @@
  * @version 2016.02.29
  */
 
-public class Command
+public abstract class Command
 {
-    private String commandWord;
+    private CommandWord commandWord;
     private String secondWord;
 
     /**
@@ -29,9 +29,9 @@ public class Command
      *                  was not recognised.
      * @param secondWord The second word of the command.
      */
-    public Command(String firstWord, String secondWord)
+    public Command(CommandWord firstWord, String secondWord)
     {
-        commandWord = firstWord;
+        this.commandWord = firstWord;
         this.secondWord = secondWord;
     }
 
@@ -40,11 +40,17 @@ public class Command
      * command was not understood, the result is null.
      * @return The command word.
      */
-    public String getCommandWord()
+    public CommandWord getCommandWord()
     {
         return commandWord;
     }
+    public static String getCommandWords() {
+        // You might have a list of command words, for example:
+        String[] commandWords = {"go", "quit", "help", "look", "eat"};
 
+        // Join the command words into a single string
+        return String.join(", ", commandWords);
+    }
     /**
      * @return The second word of this command. Returns null if there was no
      * second word.
@@ -68,6 +74,13 @@ public class Command
     public boolean hasSecondWord()
     {
         return (secondWord != null);
+    }
+    
+    public abstract String processCommand(Player player);
+    
+    @Override
+    public String toString(){
+        return getClass().getName()+": "+commandWord+" "+secondWord;
     }
 }
 
