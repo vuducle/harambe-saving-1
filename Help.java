@@ -12,6 +12,8 @@ public class Help extends Command
      */
     public String processCommand(Player player) 
     {
+        String yeahCommandWords_YEET = CommandWord.getCommandWords();
+        player.currentRoom.displayItems();
         return "You are lost. You are alone. You wander"
         +"\n"
         + "around at the university."
@@ -19,7 +21,7 @@ public class Help extends Command
         +"\n"
         +"Your command words are:"
         +"\n"
-        +"   go quit help"
+        + yeahCommandWords_YEET + "\n"
         +"\n";
     }
 }

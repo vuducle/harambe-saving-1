@@ -34,7 +34,7 @@ public class Welcome extends Command
             result += "west ";
         }
         result += "\n";
-        MusicPlayer musicPlayer = new MusicPlayer("sound/harambemusic.wav");
+        MusicPlayer musicPlayer = new MusicPlayer("./sound/harambemusic.wav");
         musicPlayer.play();
     
         return result;

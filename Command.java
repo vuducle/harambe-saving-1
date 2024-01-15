@@ -19,8 +19,8 @@
 
 public abstract class Command
 {
-    private CommandWord commandWord;
-    private String secondWord;
+    private final CommandWord commandWord;
+    private final String secondWord;
 
     /**
      * Create a command object. First and second word must be supplied, but

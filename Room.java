@@ -22,6 +22,8 @@ public class Room
     public Room southExit;
     public Room eastExit;
     public Room westExit;
+
+    public Player player;
     ArrayList<Prop> props = new ArrayList<>();
     public ArrayList<Item> items = new ArrayList<>();
 
@@ -81,17 +83,25 @@ public class Room
     public void addItem(Item item) {
         items.add(item);
     }
-    
     public ArrayList<Item> getItems() {
         return items;
     }
-
+    public void addAllItem(Item item) {
+        for (int i = 0; i < player.inventory.size(); i++) {
+            items.add(item);
+        }
+    }
     public Item getItem() {
         if (!items.isEmpty()) {
             return items.get(0);
         } else {
             return null; 
         }
+    }
+
+    public void removeItem(Item item)
+    {
+        items.remove(item);
     }
 
     public void addRandomItem(ArrayList<Item> specificItems, Item additionalItem) {

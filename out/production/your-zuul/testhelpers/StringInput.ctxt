@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=StringInput
+comment0.text=\r\n\ StringInput\ provides\ a\ dynamic\ InputStream\ to\ pass\ to\ System.in\r\n\ that\ can\ be\ fed\ one\ line\ of\ input\ at\ a\ time\r\n\ Idea\ adapted\ from\ https\://stackoverflow.com/questions/48980345/is-it-possible-to-generate-a-dynamic-inputstream-in-java\r\n
+comment1.params=
+comment1.target=StringInput()
+comment2.params=line
+comment2.target=boolean\ add(java.lang.String)
+comment3.params=
+comment3.target=int\ read()
+numComments=4

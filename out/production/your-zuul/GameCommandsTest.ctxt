@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=GameCommandsTest
+comment0.text=\r\n\ Contains\ System\ Tests\ for\ all\ commands\ \r\n\ -\ except\ positive\ tests\ for\ go\ command.\r\n\r\n
+comment1.params=
+comment1.target=void\ setUp()
+comment1.text=\r\n\ Sets\ up\ the\ test\ fixture.\r\n\r\n\ Called\ before\ every\ test\ case\ method.\r\n
+comment2.params=
+comment2.target=void\ testGoNorthNoDoor()
+comment2.text=\ \r\n\ This\ test\ is\ dependent\ on\ the\ first\ room's\ exits\ and\r\n\ may\ need\ to\ be\ adapted\ if\ you\ change\ the\ world.\r\n
+comment3.params=
+comment3.target=void\ testGoWithoutDirection()
+comment3.text=\r\n\ \ \ \ @Test\r\n\ \ \ \ public\ void\ showExits(){\r\n\ \ \ \ \ \ \ \ game.processInputLine("go\ south");\r\n\ \ \ \ \ \ \ \ String\ result\ \=\ game.processInputLine("go\ north");\r\n\ \ \ \ \ \ \ \ assertTrue(result.contains("Exits\:"));\r\n\ \ \ \ \ \ \ \ assertTrue(result.contains("east"));\r\n\ \ \ \ \ \ \ \ assertTrue(result.contains("south"));\r\n\ \ \ \ \ \ \ \ assertTrue(result.contains("west"));\r\n\ \ \ \ }\ \r\n
+comment4.params=
+comment4.target=void\ testQuit()
+comment5.params=
+comment5.target=void\ testHelp()
+comment6.params=
+comment6.target=void\ testUnknownCommand()
+comment7.params=
+comment7.target=void\ testInspectRoom()
+comment8.params=
+comment8.target=void\ testSearch()
+numComments=9

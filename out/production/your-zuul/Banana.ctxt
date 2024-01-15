@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Banana
+comment1.params=description\ amount
+comment1.target=Banana(java.lang.String,\ int)
+numComments=2

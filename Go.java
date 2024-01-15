@@ -1,7 +1,6 @@
 public class Go extends Command
 
 {
-    private Player player;
     public Go(CommandWord firstWord, String secondWord){
         super(firstWord, secondWord);
     }
@@ -58,7 +57,6 @@ public class Go extends Command
             if(currentRoom.westExit != null) {
                 result += "west ";
             }
-            player.setCurrentRoom(nextRoom);
         }
         return result + "\n";
     }

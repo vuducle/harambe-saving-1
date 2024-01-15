@@ -22,6 +22,6 @@ public class Item
     }
 
     public String getDescriptionString() {
-        return "A " + description + " with an amount of " + amount + ".";
+        return String.format("A '%s' with an amount of `%d`.", description, amount);
     }
 }

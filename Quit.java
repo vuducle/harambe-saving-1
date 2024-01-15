@@ -15,10 +15,12 @@ public class Quit extends Command
             return "Quit what?";
         }
         else {
+            System.exit(0);
             //return "Thank you for playing.  Good bye.";  // signal that we want to quit
             return null;  // signal that we want to quit
             // should be replaced with a flag in player class to
             // signal quit to game loop
+
         }
     }
 }

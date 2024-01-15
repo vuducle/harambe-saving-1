@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=CommandWord
+comment1.params=word
+comment1.target=CommandWord(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=aString
+comment3.target=boolean\ isCommand(java.lang.String)
+comment3.text=\r\n\ Check\ whether\ a\ given\ String\ is\ a\ valid\ command\ word.\ \r\n\ @return\ true\ if\ a\ given\ string\ is\ a\ valid\ command,\r\n\ false\ if\ it\ isn't.\r\n
+comment4.params=commandWord
+comment4.target=CommandWord\ forString(java.lang.String)
+comment5.params=firstWord\ secondWord
+comment5.target=Command\ buildCommand(java.lang.String,\ java.lang.String)
+comment6.params=
+comment6.target=java.lang.String\ getCommandWords()
+numComments=7

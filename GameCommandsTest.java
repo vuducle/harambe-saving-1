@@ -1,8 +1,7 @@
-
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Contains System Tests for all commands 
@@ -71,7 +70,7 @@ public class GameCommandsTest
         //when
         String output = game.processInputLine("quit");
         //then
-        assertEquals(null,output,"null is the output that signals that the main loop should stop");
+        assertNull(output, "null is the output that signals that the main loop should stop");
     }
 
     @Test

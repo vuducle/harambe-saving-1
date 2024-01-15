@@ -4,7 +4,7 @@ import java.util.Timer;
  * Implements a timer feature for our game
  * If times reaches 0, the bomb will explode and HARAMBE will die!
  *
- * @author Vu Duc Le
+ * @author The Harambe group
  * @version 0.1
  */
 public class TimerCount extends TimerTask {
@@ -32,6 +32,7 @@ public class TimerCount extends TimerTask {
             } else {
                 System.out.println("Game Over! The bomb has been exploded. Team Terrorists wins!");
                 System.out.println("Harambe is dead again!");
+                System.exit(0);
                 cancel();
             }
         }
