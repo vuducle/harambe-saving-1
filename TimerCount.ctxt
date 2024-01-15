@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=TimerCount
-comment0.text=\r\n\ Implements\ a\ timer\ feature\ for\ our\ game\r\n\ If\ times\ reaches\ 0,\ the\ bomb\ will\ explode\ and\ HARAMBE\ will\ die\!\r\n\r\n\ @author\ Vu\ Duc\ Le\r\n\ @version\ 0.1\r\n
+comment0.text=\r\n\ Implements\ a\ timer\ feature\ for\ our\ game\r\n\ If\ times\ reaches\ 0,\ the\ bomb\ will\ explode\ and\ HARAMBE\ will\ die\!\r\n\r\n\ @author\ The\ Harambe\ group\r\n\ @version\ 0.1\r\n
 comment1.params=
 comment1.target=void\ run()
 numComments=2

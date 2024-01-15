@@ -31,13 +31,15 @@ public class Game {
     private final Player player;
     // private Room currentRoom;
     Timer timer = new Timer();
+    private RoomManager roomManager;
 
     /**
      * Create the game and initialise its internal map.
      */
     public Game() {
         player = new Player();
-        createRooms();
+        roomManager = new RoomManager();
+        player.setCurrentRoom(roomManager.getLobby());
         parser = new Parser();
         timer.schedule(new TimerCount(), 0, 10000);
     }
@@ -46,7 +48,7 @@ public class Game {
      * Create all the rooms and link their exits together.
      */
     private void createRooms() {
-        Room lobby, storage, prison, lab;
+        /*Room lobby, storage, prison, lab;
         Prop box, pinnboard, fridge, bomb, chair, table, cupboard;
 
         // create the rooms
@@ -99,10 +101,10 @@ public class Game {
         prison.setProps(bomb);
         lab.setExits(prison, null, null, lobby);
 
-        lab.setProps(chair, table);
+        lab.setProps(chair, table); */
+        
 
-
-        player.setCurrentRoom(lobby);
+        //player.setCurrentRoom(lobby);
 
         // prison.displayItemInfo();
     }
