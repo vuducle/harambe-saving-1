@@ -74,7 +74,7 @@ public class Game {
         // initialise room exits (north, east, south, west)
         lobby.setExits(storage, lab, null, null);
 
-        lobby.setProps(pinnboard, cupboard, null, null);
+        lobby.setProps(pinnboard, cupboard);
         // prison.setItem(banana);
 
         // Add Items in the ArrayList
@@ -93,13 +93,13 @@ public class Game {
 
         storage.setExits(null, null, lobby, null);
 
-        storage.setProps(cupboard, fridge, box, null);
+        storage.setProps(cupboard, fridge, box);
         prison.setExits(null, null, lab, null);
 
-        prison.setProps(bomb, null, null, null);
+        prison.setProps(bomb);
         lab.setExits(prison, null, null, lobby);
 
-        lab.setProps(chair, table, null, null);
+        lab.setProps(chair, table);
 
 
         player.setCurrentRoom(lobby);

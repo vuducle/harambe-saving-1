@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 /**
  * Class Room - a room in an adventure game.
@@ -63,21 +64,10 @@ public class Room
             westExit = west;
         }
     }
-   
-    
-    public void setProps(Prop prop1, Prop prop2, Prop prop3, Prop prop4){
-        if(prop1 != null){
-            props.add(prop1);
-        }
-        if(prop2 != null){
-            props.add(prop2);
-        }
-        if(prop3 != null){
-            props.add(prop3);
-        }
-        if(prop4 != null){
-            props.add(prop4);
-        }
+
+
+    public void setProps(Prop... propsToAdd) {
+        props.addAll(Arrays.asList(propsToAdd));
     }
     
     public void addItem(Item item) {

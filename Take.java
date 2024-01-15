@@ -26,6 +26,9 @@ public class Take extends Command {
                     {
                         for (Item item: playerInventory)
                         {
+                            if (playerInventory.size() > 3) {
+                                return "Your inventory is full, you have only 3 slots available";
+                            }
                             // if player inventory has item
                             if (!item.getDescription().equals(itemName))
                             {
