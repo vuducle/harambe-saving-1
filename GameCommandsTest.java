@@ -114,5 +114,13 @@ public class GameCommandsTest
         // then an error message should be returned
         assertTrue(output.contains("Search what?"));
     }
+    @Test
+    public void testThink(){
+        // given arbitrary game
+        // when entering unknown command
+        String output = game.processInputLine("think");
+        // then an error message should be returned
+        assertTrue(output.contains("You"));
+    }
     
 }

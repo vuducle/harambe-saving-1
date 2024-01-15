@@ -8,7 +8,7 @@ public class Welcome extends Command
     public Welcome(CommandWord firstWord, String secondWord){
         super(firstWord, secondWord);
     }
-    
+    @Override    
     public String processCommand(Player player) {
         Room currentRoom = player.getCurrentRoom();
         String result = "\n";

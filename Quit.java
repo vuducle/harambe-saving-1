@@ -9,6 +9,7 @@ public class Quit extends Command
      * whether we really quit the game.
      * @return true, if this command quits the game, false otherwise.
      */
+    @Override
     public String processCommand(Player player) 
     {
         if(this.hasSecondWord()) {

@@ -4,6 +4,7 @@ public class SearchProp extends Command
         super(firstWord, secondWord);
     }
     
+    @Override
     public String processCommand(Player player) {
     if(!this.hasSecondWord()) {
             // if there is no second word, we don't know where to go...

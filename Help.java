@@ -10,6 +10,7 @@ public class Help extends Command
      * Here we print some stupid, cryptic message and a list of the 
      * command words.
      */
+    @Override
     public String processCommand(Player player) 
     {
         return "You are lost. You are alone. You wander"
