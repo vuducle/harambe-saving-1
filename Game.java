@@ -65,18 +65,47 @@ public class Game
         chair = new Prop("chair", false, false);
         table = new Prop("table", false, false);
         
+        // create the Items (Item-Description, Amount)
+        Item banana = new Item("Yellow banana", 3);
+        Item key = new Item("Magic Key", 1);
+        Item notes = new Item("Code Zettelchen", 4);
+        Item SECRET_BANANA = new Item("Secret Banana", 1);
+        Item NYAN_CAT = new Item("Nyan Cat", 1);
+
         // initialise room exits (north, east, south, west)
         lobby.setExits(storage, lab, null, null);
+    
         lobby.setProps(pinnboard, cupboard, null,null);
+        // prison.setItem(banana);
+
+        // Add Items in the ArrayList
+        ArrayList<Item> specificItems = new ArrayList<>();
+        specificItems.add(banana);
+        specificItems.add(key);
+        specificItems.add(notes);
+        specificItems.add(SECRET_BANANA);
+        
+        prison.addItem(banana);
+        lab.addItem(key);
+        lab.addItem(notes);
+        storage.addItem(SECRET_BANANA);
+        lab.addRandomItem(specificItems, NYAN_CAT);
+
+
         storage.setExits(null, null, lobby, null);
+        
         storage.setProps(cupboard, fridge, box,null);
         prison.setExits(null, null, lab, null);
+        
         prison.setProps(bomb, null, null,null);
         lab.setExits(prison, null, null, lobby);
+        
         lab.setProps(chair, table, null,null);
         
 
         player.setCurrentRoom(lobby);
+        
+        // prison.displayItemInfo();
     }
 
     /**

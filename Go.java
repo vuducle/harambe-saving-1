@@ -1,7 +1,7 @@
 public class Go extends Command
 
 {
-
+    private Player player;
     public Go(CommandWord firstWord, String secondWord){
         super(firstWord, secondWord);
     }
@@ -20,7 +20,7 @@ public class Go extends Command
             // if there is no second word, we don't know where to go...
             return "Go where?";
         }
-
+        
         String direction = command.getSecondWord();
 
         // Try to leave current room.

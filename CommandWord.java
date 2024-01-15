@@ -16,7 +16,6 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.function.BiFunction;
 import java.util.LinkedHashMap;
-import java.util.Random;
 
 public enum CommandWord
 {
@@ -29,12 +28,12 @@ public enum CommandWord
     
     INSPECT("inspect"),//details vom Raum ansehen
     SEARCH("search"),
-    THINK("think"),
 
     QUIT("quit"), 
     EAT("eat"),
     UNKNOWN("unknown"),
-    HELP("help");
+    HELP("help"),
+    BACK("back");
 
        private static Map<CommandWord, BiFunction<CommandWord,String,Command>> commandFactories = new LinkedHashMap<>();
 
@@ -48,8 +47,7 @@ public enum CommandWord
         commandFactories.put(EAT, (w1,w2)-> new Eat(w1,w2));
         commandFactories.put(SEARCH, (w1,w2)-> new SearchProp(w1,w2));
         commandFactories.put(LOOK, (w1,w2)-> new Unknown(w1, w2));
-        commandFactories.put(THINK, (w1,w2)-> new Think(w1, w2));
-    
+        commandFactories.put(BACK, (w1,w2)-> new Back(w1, w2));
    }
 
     private String word;
