@@ -18,7 +18,7 @@ import java.util.Scanner;
  */
 public class Parser 
 {
-    private Scanner reader;         // source of command input
+    private final Scanner reader;         // source of command input
 
     /**
      * Create a parser to read from the terminal window.
@@ -48,13 +48,19 @@ public class Parser
 
         // Find up to two words on the line.
         Scanner tokenizer = new Scanner(inputLine);
-        if(tokenizer.hasNext()) {
-            word1 = tokenizer.next();      // get first word
-            if(tokenizer.hasNext()) {
-                word2 = tokenizer.next();      // get second word
-                // note: we just ignore the rest of the input line.
-            }
+        String bullShit = tokenizer.nextLine();
+        int first = bullShit.indexOf(" ");
+        if (first > 0)
+        {
+            String firstWord = bullShit.substring(0, first);
+            String secondBSWord = bullShit.substring(first + 1);
+            word1 = firstWord;
+            word2 = secondBSWord;
         }
+        else {
+            word1 = bullShit;
+        }
+
         return CommandWord.buildCommand(word1, word2);
     }
 }

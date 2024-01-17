@@ -12,7 +12,7 @@ import java.util.Queue;
  * Idea adapted from https://stackoverflow.com/questions/48980345/is-it-possible-to-generate-a-dynamic-inputstream-in-java
  */
 public class StringInput extends InputStream {
-    private static byte data[] = null;
+    private static byte[] data = null;
     private static int index = 0;
     Queue<String> inputQueue = new LinkedList<>();
     public StringInput(){

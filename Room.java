@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 /**
  * Class Room - a room in an adventure game.
@@ -22,6 +23,8 @@ public class Room
     public Room southExit;
     public Room eastExit;
     public Room westExit;
+
+    public Player player;
     ArrayList<Prop> props = new ArrayList<>();
     public ArrayList<Item> items = new ArrayList<>();
 
@@ -61,37 +64,34 @@ public class Room
             westExit = west;
         }
     }
-   
-    
-    public void setProps(Prop prop1, Prop prop2, Prop prop3, Prop prop4){
-        if(prop1 != null){
-            props.add(prop1);
-        }
-        if(prop2 != null){
-            props.add(prop2);
-        }
-        if(prop3 != null){
-            props.add(prop3);
-        }
-        if(prop4 != null){
-            props.add(prop4);
-        }
+
+
+    public void setProps(Prop... propsToAdd) {
+        props.addAll(Arrays.asList(propsToAdd));
     }
     
     public void addItem(Item item) {
         items.add(item);
     }
-    
     public ArrayList<Item> getItems() {
         return items;
     }
-
+    public void addAllItem(Item item) {
+        for (int i = 0; i < player.inventory.size(); i++) {
+            items.add(item);
+        }
+    }
     public Item getItem() {
         if (!items.isEmpty()) {
             return items.get(0);
         } else {
             return null; 
         }
+    }
+
+    public void removeItem(Item item)
+    {
+        items.remove(item);
     }
 
     public void addRandomItem(ArrayList<Item> specificItems, Item additionalItem) {

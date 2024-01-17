@@ -11,7 +11,6 @@ public class InspectRoom extends Command
      */
     public String processCommand(Player player) 
     {
-        //System.out.print(player.currentRoom.details);
         String result = player.currentRoom.details;
         return result;
     }

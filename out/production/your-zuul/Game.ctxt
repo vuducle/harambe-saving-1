@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Game
+comment1.params=
+comment1.target=Game()
+comment1.text=\r\n\ Create\ the\ game\ and\ initialise\ its\ internal\ map.\r\n
+comment2.params=
+comment2.target=void\ createRooms()
+comment2.text=\r\n\ Create\ all\ the\ rooms\ and\ link\ their\ exits\ together.\r\n
+comment3.params=
+comment3.target=void\ play()
+comment3.text=\r\n\ \ Main\ play\ routine.\ \ Loops\ until\ end\ of\ play.\r\n
+comment4.params=line
+comment4.target=java.lang.String\ processInputLine(java.lang.String)
+comment4.text=\r\n\ This\ is\ a\ further\ method\ added\ by\ BK\ to\r\n\ provide\ a\ clearer\ interface\ that\ can\ be\ tested\:\r\n\ Game\ processes\ a\ commandLine\ and\ returns\ output.\r\n\ @param\ commandLine\ -\ the\ line\ entered\ as\ String\r\n\ @return\ output\ of\ the\ command\r\n
+numComments=5

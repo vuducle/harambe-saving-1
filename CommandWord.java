@@ -9,11 +9,8 @@
  * @version 2016.02.29
  */
 
-import java.util.Arrays;
 import java.util.stream.Collectors;
-import java.util.function.Supplier;
 import java.util.Map;
-import java.util.HashMap;
 import java.util.function.BiFunction;
 import java.util.LinkedHashMap;
 
@@ -33,9 +30,13 @@ public enum CommandWord
     EAT("eat"),
     UNKNOWN("unknown"),
     HELP("help"),
-    BACK("back");
+    BACK("back"),
+    INVENTORY("inventory"),
 
-       private static Map<CommandWord, BiFunction<CommandWord,String,Command>> commandFactories = new LinkedHashMap<>();
+    TAKE("take"),
+    DROP("drop");
+
+       private static final Map<CommandWord, BiFunction<CommandWord,String,Command>> commandFactories = new LinkedHashMap<>();
 
     static {
         commandFactories.put(GO, (w1,w2)-> new Go(w1,w2));
@@ -48,10 +49,13 @@ public enum CommandWord
         commandFactories.put(SEARCH, (w1,w2)-> new SearchProp(w1,w2));
         commandFactories.put(LOOK, (w1,w2)-> new Unknown(w1, w2));
         commandFactories.put(BACK, (w1,w2)-> new Back(w1, w2));
+        commandFactories.put(INVENTORY, (w1,w2)-> new Inventory(w1, w2));
+        commandFactories.put(TAKE, (w1, w2) -> new Take(w1, w2));
+        commandFactories.put(DROP, (w1, w2) -> new Drop(w1, w2));
    }
 
-    private String word;
-    private CommandWord(String word){
+    private final String word;
+    CommandWord(String word){
         this.word = word;
     }
 

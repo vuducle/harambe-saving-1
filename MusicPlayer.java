@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class MusicPlayer {
 
-    private String filePath;
+    private final String filePath;
 
     public MusicPlayer(String filePath) {
         this.filePath = filePath;
