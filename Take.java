@@ -20,6 +20,10 @@ public class Take extends Command {
                     {
                         player.currentRoom.removeItem(roomItem);
                         playerInventory.add(roomItem);
+                        if (roomItem.getDescription().equals("Nyan Cat")){
+                            System.out.println("You picked up the legendary Nyan Cat! Meow! \n");
+                            ImgGeneration img = new ImgGeneration("./nyancat.png");
+                        }
                         return String.format("You took the item '%s'", itemName);
                     }
                     else

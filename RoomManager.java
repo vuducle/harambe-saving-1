@@ -1,3 +1,7 @@
+/*Diese Klasse kümmert sich um das erstellen der Räume
+   und ihre dazugehörigen Items.
+   */
+
 import java.util.ArrayList;
 
 public class RoomManager {

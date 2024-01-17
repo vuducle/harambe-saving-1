@@ -34,7 +34,7 @@ public class Game {
         //TODO: need to change the Code
         timer.schedule(new TimerCount(), 0, 10000);
         System.out.println(new Welcome().processCommand(player));
-        ImgGeneration img = new ImgGeneration();
+        ImgGeneration img = new ImgGeneration("./harambe.png");
 
         boolean finished = false;
         while (!finished) {

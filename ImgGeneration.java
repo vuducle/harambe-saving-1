@@ -20,9 +20,9 @@ public class ImgGeneration
     /**
      * Konstruktor für Objekte der Klasse ImgGeneration
      */
-    public ImgGeneration()
+    public ImgGeneration(String path)
     {
-        String bildDateiPfad = "./harambe.png";
+        String bildDateiPfad = path;
 
         try {
             BufferedImage bild = ImageIO.read(new File(bildDateiPfad));

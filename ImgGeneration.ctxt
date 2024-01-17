@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=ImgGeneration
 comment0.text=\r\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ ImgGeneration.\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
-comment1.params=
-comment1.target=ImgGeneration()
+comment1.params=path
+comment1.target=ImgGeneration(java.lang.String)
 comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ ImgGeneration\r\n
 numComments=2
