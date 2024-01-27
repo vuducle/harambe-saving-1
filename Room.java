@@ -19,10 +19,11 @@ public class Room
 {
     public String description;
     public String details;
-    public Room northExit;
-    public Room southExit;
-    public Room eastExit;
-    public Room westExit;
+    // making these private breaks several other classes - too close coupling!
+    private Room northExit;
+    private Room southExit;
+    private Room eastExit;
+    private Room westExit;
 
     public Player player;
     ArrayList<Prop> props = new ArrayList<>();
